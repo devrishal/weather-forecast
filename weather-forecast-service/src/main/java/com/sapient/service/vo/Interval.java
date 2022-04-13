@@ -1,11 +1,11 @@
 package com.sapient.service.vo;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@Data
 public class Interval {
-    @JsonProperty("dt")
     private LocalDateTime start;
     private LocalDateTime end;
 

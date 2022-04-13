@@ -12,6 +12,9 @@ weather-forecast:
     url: api.openweathermap.org/data/2.5/forecast
     appid: d2929e9483efc82c82c32ee7e02d563e
     protocol: https
+  duration: 3
+  duration-mode: HOURS
+  time-interval: 3
 
 logging:
   level:
