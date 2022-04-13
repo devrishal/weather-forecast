@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /weather-forecast-service
+
+spring:
+  application:
+    name: weather-forecast-service
+
+weather-forecast:
+  service:
+    url: api.openweathermap.org/data/2.5/forecast
+    appid: d2929e9483efc82c82c32ee7e02d563e
+    protocol: https
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
