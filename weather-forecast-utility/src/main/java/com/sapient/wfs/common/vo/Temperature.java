@@ -1,4 +1,4 @@
-package com.sapient.service.vo;
+package com.sapient.wfs.common.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

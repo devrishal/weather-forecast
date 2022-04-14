@@ -34,8 +34,6 @@ public class WeatherConditionCodeLoader {
                     = new TypeReference<HashMap<String, WeatherConditionCode>>() {
             };
             weatherConditionCode = objectMapper.readValue(file, typeRef);
-            //weatherConditionCode = object;
-            //weatherConditionCode.put(objectMapper.readValue(file, typeRef));
             log.info(weatherConditionCode.toString());
         } catch (IOException e) {
             e.printStackTrace();

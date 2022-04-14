@@ -1,7 +1,9 @@
 package com.sapient.wfs.common.util;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+@Data
 public class WeatherConditionCode {
     @JsonProperty("ID")
     private String id;
@@ -9,5 +11,6 @@ public class WeatherConditionCode {
     private String main;
     @JsonProperty("Description")
     private String description;
+    private String message;
 
 }

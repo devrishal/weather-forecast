@@ -2,276 +2,331 @@
   "200": {
     "ID": "200",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with light rain"
+    "Description": "thunderstorm with light rain",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "201": {
     "ID": "201",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with rain"
+    "Description": "thunderstorm with rain",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "202": {
     "ID": "202",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with heavy rain"
+    "Description": "thunderstorm with heavy rain",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "210": {
     "ID": "210",
     "Main": "Thunderstorm",
-    "Description": "light thunderstorm"
+    "Description": "light thunderstorm",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "211": {
     "ID": "211",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm"
+    "Description": "thunderstorm",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "212": {
     "ID": "212",
     "Main": "Thunderstorm",
-    "Description": "heavy thunderstorm"
+    "Description": "heavy thunderstorm",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "221": {
     "ID": "221",
     "Main": "Thunderstorm",
-    "Description": "ragged thunderstorm"
+    "Description": "ragged thunderstorm",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "230": {
     "ID": "230",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with light drizzle"
+    "Description": "thunderstorm with light drizzle",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "231": {
     "ID": "231",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with drizzle"
+    "Description": "thunderstorm with drizzle",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "232": {
     "ID": "232",
     "Main": "Thunderstorm",
-    "Description": "thunderstorm with heavy drizzle"
+    "Description": "thunderstorm with heavy drizzle",
+    "message": "Don’t step out! A Storm is brewing!"
   },
   "300": {
     "ID": "300",
     "Main": "Drizzle",
-    "Description": "light intensity drizzle"
+    "Description": "light intensity drizzle",
+    "message": "Drizzle!"
   },
   "301": {
     "ID": "301",
     "Main": "Drizzle",
-    "Description": "drizzle"
+    "Description": "drizzle",
+    "message": "Drizzle!"
   },
   "302": {
     "ID": "302",
     "Main": "Drizzle",
-    "Description": "heavy intensity drizzle"
+    "Description": "heavy intensity drizzle",
+    "message": "Drizzle!"
   },
   "310": {
     "ID": "310",
     "Main": "Drizzle",
-    "Description": "light intensity drizzle rain"
+    "Description": "light intensity drizzle rain",
+    "message": "Drizzle!"
   },
   "311": {
     "ID": "311",
     "Main": "Drizzle",
-    "Description": "drizzle rain"
+    "Description": "drizzle rain",
+    "message": "Drizzle!"
   },
   "312": {
     "ID": "312",
     "Main": "Drizzle",
-    "Description": "heavy intensity drizzle rain"
+    "Description": "heavy intensity drizzle rain",
+    "message": "Drizzle!"
   },
   "313": {
     "ID": "313",
     "Main": "Drizzle",
-    "Description": "shower rain and drizzle"
+    "Description": "shower rain and drizzle",
+    "message": "Drizzle!"
   },
   "314": {
     "ID": "314",
     "Main": "Drizzle",
-    "Description": "heavy shower rain and drizzle"
+    "Description": "heavy shower rain and drizzle",
+    "message": "Drizzle!"
   },
   "321": {
     "ID": "321",
     "Main": "Drizzle",
-    "Description": "shower drizzle"
+    "Description": "shower drizzle",
+    "message": "Drizzle!"
   },
   "500": {
     "ID": "500",
     "Main": "Rain",
-    "Description": "light rain"
+    "Description": "light rain",
+    "message": "Carry umbrella!"
   },
   "501": {
     "ID": "501",
     "Main": "Rain",
-    "Description": "moderate rain"
+    "Description": "moderate rain",
+    "message": "Carry umbrella!"
   },
   "502": {
     "ID": "502",
     "Main": "Rain",
-    "Description": "heavy intensity rain"
+    "Description": "heavy intensity rain",
+    "message": "Carry umbrella!"
   },
   "503": {
     "ID": "503",
     "Main": "Rain",
-    "Description": "very heavy rain"
+    "Description": "very heavy rain",
+    "message": "Carry umbrella!"
   },
   "504": {
     "ID": "504",
     "Main": "Rain",
-    "Description": "extreme rain"
+    "Description": "extreme rain",
+    "message": "Carry umbrella!"
   },
   "511": {
     "ID": "511",
     "Main": "Rain",
-    "Description": "freezing rain"
+    "Description": "freezing rain",
+    "message": "Carry umbrella!"
   },
   "520": {
     "ID": "520",
     "Main": "Rain",
-    "Description": "light intensity shower rain"
+    "Description": "light intensity shower rain",
+    "message": "Carry umbrella!"
   },
   "521": {
     "ID": "521",
     "Main": "Rain",
-    "Description": "shower rain"
+    "Description": "shower rain",
+    "message": "Carry umbrella!"
   },
   "522": {
     "ID": "522",
     "Main": "Rain",
-    "Description": "heavy intensity shower rain"
+    "Description": "heavy intensity shower rain",
+    "message": "Carry umbrella!"
   },
   "531": {
     "ID": "531",
     "Main": "Rain",
-    "Description": "ragged shower rain"
+    "Description": "ragged shower rain",
+    "message": "Carry umbrella!"
   },
   "600": {
     "ID": "600",
     "Main": "Snow",
-    "Description": "light snow"
+    "Description": "light snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "601": {
     "ID": "601",
     "Main": "Snow",
-    "Description": "Snow"
+    "Description": "Snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "602": {
     "ID": "602",
     "Main": "Snow",
-    "Description": "Heavy snow"
+    "Description": "Heavy snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "611": {
     "ID": "611",
     "Main": "Snow",
-    "Description": "Sleet"
+    "Description": "Sleet",
+    "message": "Wear Sweater and Jackets!"
   },
   "612": {
     "ID": "612",
     "Main": "Snow",
-    "Description": "Light shower sleet"
+    "Description": "Light shower sleet",
+    "message": "Wear Sweater and Jackets!"
   },
   "613": {
     "ID": "613",
     "Main": "Snow",
-    "Description": "Shower sleet"
+    "Description": "Shower sleet",
+    "message": "Wear Sweater and Jackets!"
   },
   "615": {
     "ID": "615",
     "Main": "Snow",
-    "Description": "Light rain and snow"
+    "Description": "Light rain and snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "616": {
     "ID": "616",
     "Main": "Snow",
-    "Description": "Rain and snow"
+    "Description": "Rain and snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "620": {
     "ID": "620",
     "Main": "Snow",
-    "Description": "Light shower snow"
+    "Description": "Light shower snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "621": {
     "ID": "621",
     "Main": "Snow",
-    "Description": "Shower snow"
+    "Description": "Shower snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "622": {
     "ID": "622",
     "Main": "Snow",
-    "Description": "Heavy shower snow"
+    "Description": "Heavy shower snow",
+    "message": "Wear Sweater and Jackets!"
   },
   "701": {
     "ID": "701",
     "Main": "Mist",
-    "Description": "mist"
+    "Description": "mist",
+    "message": "Mist!"
   },
   "711": {
     "ID": "711",
     "Main": "Smoke",
-    "Description": "Smoke"
+    "Description": "Smoke",
+    "message": "Smoke!"
   },
   "721": {
     "ID": "721",
     "Main": "Haze",
-    "Description": "Haze"
+    "Description": "Haze",
+    "message": "Haze!"
   },
   "731": {
     "ID": "731",
     "Main": "Dust",
-    "Description": "sand/ dust whirls"
+    "Description": "sand/ dust whirls",
+    "message": "Smoke!"
   },
   "741": {
     "ID": "741",
     "Main": "Fog",
-    "Description": "fog"
+    "Description": "fog",
+    "message": "Fog!"
   },
   "751": {
     "ID": "751",
     "Main": "Sand",
-    "Description": "sand"
+    "Description": "sand",
+    "message": "sand!"
   },
   "761": {
     "ID": "761",
     "Main": "Dust",
-    "Description": "dust"
+    "Description": "dust",
+    "message": "Dust!"
   },
   "762": {
     "ID": "762",
     "Main": "Ash",
-    "Description": "volcanic ash"
+    "Description": "volcanic ash",
+    "message": "Volcanic ash!"
   },
   "771": {
     "ID": "771",
     "Main": "Squall",
-    "Description": "squalls"
+    "Description": "squalls",
+    "message": "Squall!"
   },
   "781": {
     "ID": "781",
     "Main": "Tornado",
-    "Description": "tornado"
+    "Description": "tornado",
+    "message": "Tornado!"
   },
   "800": {
     "ID": "800",
     "Main": "Clear",
-    "Description": "clear sky"
+    "Description": "clear sky",
+    "message": "Clear sky!"
   },
   "801": {
     "ID": "801",
     "Main": "Clouds",
-    "Description": "few clouds: 11-25%"
+    "Description": "few clouds: 11-25%",
+    "message": "Few clouds!"
   },
   "802": {
     "ID": "802",
     "Main": "Clouds",
-    "Description": "scattered clouds: 25-50%"
+    "Description": "scattered clouds: 25-50%",
+    "message": "Scattered clouds!"
   },
   "803": {
     "ID": "803",
     "Main": "Clouds",
-    "Description": "broken clouds: 51-84%"
+    "Description": "broken clouds: 51-84%",
+    "message": "Broken clouds!"
   },
   "804": {
     "ID": "804",
     "Main": "Clouds",
-    "Description": "overcast clouds: 85-100%"
+    "Description": "overcast clouds: 85-100%",
+    "message": "Overcast!"
   }
 }

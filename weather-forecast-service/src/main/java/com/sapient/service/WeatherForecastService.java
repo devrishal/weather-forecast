@@ -1,11 +1,10 @@
 package com.sapient.service;
 
 import com.sapient.service.helper.WeatherForecastServiceHelper;
-import com.sapient.service.vo.*;
+import com.sapient.wfs.common.algorithms.MinMaxAlgorithm;
 import com.sapient.wfs.common.consumers.WFConnectionUtility;
-import com.sapient.wfs.common.util.WeatherConditionCode;
-import com.sapient.wfs.common.util.WeatherConditionCodeLoader;
-import com.sapient.wfs.common.util.WeatherType;
+import com.sapient.wfs.common.util.CommonUtil;
+import com.sapient.wfs.common.vo.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,25 +36,50 @@ public class WeatherForecastService {
     @Value("${weather-forecast.time-interval}")
     private int weatherForecastTimeInterval;
     private final WFConnectionUtility connectionUtility;
-    private final WeatherForecastServiceHelper weatherForecastServiceHelper;
+    private final MinMaxAlgorithm minMaxAlgorithm;
 
-
-    public WeatherVO getWeatherDetails(String city, int record_count) {
+    public List<ProcessedWeatherData> getWeatherDetails(String city, int record_count) {
         String url = prepareUrl(city, record_count);
         WeatherVO weatherVO = connectionUtility.callService(url, connectionUtility.GET, constructHeaderMap(), WeatherVO.class).getBody();
-        HashMap<LocalDate, List<ProcessedWeatherData>> map = new HashMap<>();
-        System.out.println(weatherVO.getList().get(0).getDt_txt());
-        List<ProcessedWeatherData> processedWeatherData = new ArrayList<>();
-        for (int i = 0; i < weatherVO.getCnt(); i++) {
-            WeatherData weatherData = weatherVO.getList().get(i);
-            LocalDate date = weatherData.getDt_txt().toLocalDate();
-
-
-            weatherData.getWeather();
-            weatherData.getClouds();
+        log.info(weatherVO.toString());
+        HashMap<LocalDate, ProcessedWeatherData> map = new HashMap<>();
+        List<ProcessedWeatherData> processedWeatherDataList = new ArrayList<>();
+        LocalDateTime currentDate = LocalDate.now().atStartOfDay();
+        LocalDateTime calculatedDate = currentDate.plusDays(1);
+        while (currentDate.isBefore(calculatedDate)) {
+            for (int i = 0; i < weatherVO.getCnt(); i++) {
+                if (weatherVO.getList().get(i).getDt_txt().isAfter(currentDate.minusSeconds(1)) && (weatherVO.getList().get(i).getDt_txt().isBefore(currentDate.plusDays(1)))) {
+                    WeatherData weatherData = weatherVO.getList().get(i);
+                    ProcessedWeatherData processedWeatherData = processWeatherData(weatherData);
+                    processedWeatherDataList.add(processedWeatherData);
+                }
+            }
+            ProcessedWeatherData processedWeatherData = populateDayWeatherData(currentDate, processedWeatherDataList);
+            currentDate = currentDate.plusDays(1);
 
         }
-        return weatherVO;
+
+        return processedWeatherDataList;
+    }
+
+    private ProcessedWeatherData populateDayWeatherData(LocalDateTime date, List<ProcessedWeatherData> processedWeatherDataList) {
+        ProcessedWeatherData processedWeatherData = new ProcessedWeatherData();
+
+        Interval interval = new Interval();
+        interval.setStart(date);
+        interval.setStart(date.plusDays(1).minusSeconds(1));
+        processedWeatherData.setInterval(interval);
+
+        //minMaxAlgorithm.getMinMax(processedWeatherDataList);
+
+        Temperature temperature = new Temperature();
+        temperature.setMaximum(minMaxAlgorithm.getTemp_max());
+        temperature.setMinimum(minMaxAlgorithm.getTemp_min());
+
+        String suggestion = "";//WeatherForecastServiceHelper.TEMPERATURE.getMessage(weatherData);
+        processedWeatherData.setMessage(suggestion);
+        return processedWeatherData;
+
     }
 
     private ProcessedWeatherData processWeatherData(WeatherData weatherData) {
@@ -63,19 +87,16 @@ public class WeatherForecastService {
         LocalDateTime dateTime = weatherData.getDt_txt();
 
         Interval interval = new Interval();
-        interval.setEnd(dateTime.minusHours(weatherForecastTimeInterval));
-        interval.setStart(dateTime);
+        interval.setStart(dateTime.equals(LocalDate.now().atStartOfDay()) ? dateTime : dateTime.minusHours(weatherForecastTimeInterval));
+        interval.setEnd(dateTime);
+        processedWeatherData.setInterval(interval);
 
         Temperature temperature = new Temperature();
-        temperature.setMaximum(weatherData.getMain().getTemp_max());
-        temperature.setMaximum(weatherData.getMain().getTemp_min());
+        temperature.setMaximum(CommonUtil.kelvinToCelsius(weatherData.getMain().getTemp_max()));
+        temperature.setMinimum(CommonUtil.kelvinToCelsius(weatherData.getMain().getTemp_min()));
+        processedWeatherData.setTemperature(temperature);
 
-        /**
-         * API DOCUMENTATION
-         * NOTE: It is possible to meet more than one weather condition for a requested location. The first weather condition in API respond is primary.
-         */
-        Weather weather = weatherData.getWeather().get(0);
-        String suggestion = WeatherType.valueOf(weather.getMain()).getCustomDescription();
+        String suggestion = WeatherForecastServiceHelper.TEMPERATURE.getMessage(weatherData);
         processedWeatherData.setMessage(suggestion);
         return processedWeatherData;
     }

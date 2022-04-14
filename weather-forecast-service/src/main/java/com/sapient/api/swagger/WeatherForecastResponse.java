@@ -1,6 +1,6 @@
 package com.sapient.api.swagger;
 
-import com.sapient.service.vo.WeatherVO;
+import com.sapient.wfs.common.vo.WeatherVO;
 import com.sapient.wfs.common.exception.WFError;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
