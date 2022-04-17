@@ -1,7 +1,7 @@
 package com.sapient.wfs.common.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
-@Log
+@Slf4j
 public class WFResponseErrorHandler implements ResponseErrorHandler {
     @Override
     public boolean hasError(ClientHttpResponse response) throws IOException {
@@ -26,6 +26,7 @@ public class WFResponseErrorHandler implements ResponseErrorHandler {
 
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
+        log.error("Response Error received: {}", response);
         ObjectMapper objectMapper = new ObjectMapper();
         WFError error = null;
         switch (response.getStatusCode()) {
@@ -39,6 +40,7 @@ public class WFResponseErrorHandler implements ResponseErrorHandler {
                         .lines()
                         .collect(Collectors.joining());
                 error = objectMapper.readValue(json, WFError.class);
+                log.error("Response Error received: {}", error);
                 throw new WeatherForecastException(error);
         }
 

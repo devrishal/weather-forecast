@@ -13,4 +13,5 @@ public class ApplicationConstants {
     public static final Double KELVIN_CONSTANT = 273.15;
     public static final Double WINDSPEED_CONSTANT_MPH = 2.236936;
     public static final String DECIMAL_FORMAT = "#.##";
+    public static final String HOURS = "HOURS";
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import java.util.Collection;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -16,5 +16,5 @@ public interface WeatherForecastResource {
     @Operation(summary = "Get Weather forecast details by city name")
     @WeatherForecastResponse
     @RequestMapping(method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE, path = "/weather-data")
-    ResponseEntity<List<ProcessedWeatherData>> getWeatherForecastData(@RequestParam("city") String city, @RequestParam("record-count") int record_count);
+    ResponseEntity<Collection<ProcessedWeatherData>> getWeatherForecastData(@RequestParam("city") String city);
 }

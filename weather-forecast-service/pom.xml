@@ -12,7 +12,9 @@
     <groupId>com.sapient</groupId>
     <artifactId>weather-forecast-service</artifactId>
     <packaging>jar</packaging>
-
+    <properties>
+        <spring-plugin-core.version>2.0.0.RELEASE</spring-plugin-core.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.sapient</groupId>
@@ -32,7 +34,18 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.plugin</groupId>
+            <artifactId>spring-plugin-core</artifactId>
+            <version>${spring-plugin-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.plugin</groupId>
+            <artifactId>spring-plugin-metadata</artifactId>
+            <version>${spring-plugin-core.version}</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

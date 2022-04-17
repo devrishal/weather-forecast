@@ -1,26 +1,27 @@
 package com.sapient.api.rest.impl;
 
 import com.sapient.api.rest.WeatherForecastResource;
-import com.sapient.service.WeatherForecastService;
+import com.sapient.service.WeatherForecastProcessWeatherService;
 import com.sapient.wfs.common.vo.ProcessedWeatherData;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
-@Log
+@Slf4j
 @RequestMapping("/v1")
 @RequiredArgsConstructor
 public class WeatherForecastResourceImpl implements WeatherForecastResource {
-    private final WeatherForecastService weatherForecastService;
+    private final WeatherForecastProcessWeatherService weatherForecastProcessWeatherService;
 
     @Override
-    public ResponseEntity<List<ProcessedWeatherData>> getWeatherForecastData(String city, int record_count) {
-        return new ResponseEntity<>(weatherForecastService.getWeatherDetails(city, record_count), HttpStatus.OK);
+    public ResponseEntity<Collection<ProcessedWeatherData>> getWeatherForecastData(String city) {
+        return new ResponseEntity<Collection<ProcessedWeatherData>>(weatherForecastProcessWeatherService.doProcess(city), HttpStatus.OK);
     }
 }
