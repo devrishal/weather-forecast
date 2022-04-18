@@ -9,12 +9,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.sapient</groupId>
     <artifactId>weather-forecast-service</artifactId>
     <packaging>jar</packaging>
-    <properties>
-        <spring-plugin-core.version>2.0.0.RELEASE</spring-plugin-core.version>
-    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.sapient</groupId>
