@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /weather-forecast-service
+
+spring:
+  application:
+    name: weather-forecast-service
+    logging:
+      loggingPath: /weather-forecast-service/logs
+      level: DEBUG
+      appender: SIFT
+      rolling:
+        maxSize: 1MB
+
+
+
+
+weather-forecast:
+  service:
+    url: api.openweathermap.org/data/2.5/forecast
+    appid: 0Cl0iRmRGczCT1PV22SCgOloQq5s3Zei+9fKNNPo5ATT9EI2UbLKtZ+rLLfVxVkl
+    protocol: https
+    duration-days: 3
+    interval-mode: HOURS
+    time-interval: 3
+
+application:
+  user:
+    username[0]: rishal
+    username[1]: dummy1
+    username[2]: dummy2
+    password[0]: testpassword
+    password[1]: testpassword
+    password[2]: testpassword
+    roles[0]: SUBSCRIBED_USER
+    roles[1]: DEMO_USER
+    roles[2]: DEMO_USER
+    name: rishal
+  security:
+    jwt:
+      keystore-location: key
+      keystore-file: keystore.jks
+      keystore-password: password
+      key-alias: rishalsijwt
+      private-key-passphrase: password

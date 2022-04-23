@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: weather-forecast-service
+    logging:
+      loggingPath: /weather-forecast-service/logs
+      level: DEBUG
+      appender: SIFT
+      rolling:
+        maxSize: 1MB
