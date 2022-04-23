@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <springProperty name="applicationName" source="spring.application.name" scope="context"/>
+    <springProperty name="logPath" source="spring.application.logging.loggingPath"
+                    defaultValue="/logs"/>
+    <property name="loggerLevel" value="${spring.application.logging.level:-INFO}"/>
+    <property name="appender" value="${spring.application.logging.appender:-SIFT}"/>
+    <property name="logPattern"
+              value="%d{HH:mm:ss:SSS} | ${applicationName} | %-5level | [%X{traceId:-},%X{spanId:-}] | %logger{20}.%M |%msg%n%rEx"/>
+    <property name="logFileMaxSize" value="${spring.application.logging.rolling.maxSize:-10MB}"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>${logPattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${logPattern}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>logFileName</key>
+            <defaultValue>${logPath}/${applicationName}</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>${logFileName}.log</file>
+                <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                    <fileNamePattern>${logFileName}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                    <maxFileSize>${logFileMaxSize}</maxFileSize>
+                </rollingPolicy>
+                <encoder>
+                    <pattern>${logPattern}</pattern>
+                    <charset>utf8</charset>
+                </encoder>
+            </appender>
+        </sift>
+    </appender>
+
+    <logger level="${loggerLevel}" name="WeatherServiceLogger" additivity="false">
+        <appender-ref ref="${appender}"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="${loggerLevel}">
+        <appender-ref ref="${appender}"/>
+    </root>
+</configuration>

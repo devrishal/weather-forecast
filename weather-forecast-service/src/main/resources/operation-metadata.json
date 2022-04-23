@@ -1,0 +1,30 @@
+[
+  {
+    "operation-name": "TEMPERATURE",
+    "operator": "GREATER_THAN",
+    "operand-type": "NUMBER",
+    "operand-value": "40",
+    "order": 1
+  },
+  {
+    "operation-name": "WIND",
+    "operator": "GREATER_THAN",
+    "operand-type": "NUMBER",
+    "operand-value": "10",
+    "order": 3
+  },
+  {
+    "operation-name": "WEATHER",
+    "operator": "EQUALS",
+    "operand-type": "STRING",
+    "operand-value": "Rain",
+    "order": 2
+  },
+  {
+    "operation-name": "WEATHER",
+    "operator": "EQUALS",
+    "operand-type": "STRING",
+    "operand-value": "Thunderstorm",
+    "order": 2
+  }
+]

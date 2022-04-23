@@ -1,0 +1,26 @@
+{
+  "check": [
+    {
+      "multipleCheck": false,
+      "check": [
+        {
+          "type": "TEMPERATURE",
+          "operator": "GREATER_THAN",
+          "operand-type": "NUMBER",
+          "operand-value": 40
+        }
+      ]
+    },
+    {
+      "multipleCheck": true,
+      "check": [
+        {
+          "type": "WEATHER",
+          "operator": "EQUALS",
+          "operand-type": "String",
+          "operand-value": "Rain"
+        }
+      ]
+    }
+  ]
+}
